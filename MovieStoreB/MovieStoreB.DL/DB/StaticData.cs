@@ -23,7 +23,7 @@ namespace MovieStoreB.DL.DB
             },
             new Movie
             {
-                Id = 4, Title = "Unfriended", Year = 2015
+                Id = 4, Title = "Unfriended", Year = 2014
             }
         };
     }

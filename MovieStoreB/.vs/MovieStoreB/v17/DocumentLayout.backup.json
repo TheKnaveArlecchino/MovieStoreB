@@ -26,8 +26,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -36,7 +48,7 @@
               "RelativeDocumentMoniker": "MovieStoreB.DL\\DB\\StaticData.cs",
               "ToolTip": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.DL\\DB\\StaticData.cs",
               "RelativeToolTip": "MovieStoreB.DL\\DB\\StaticData.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBkAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T08:51:02.359Z",
               "EditorCaption": ""
@@ -51,8 +63,7 @@
               "RelativeToolTip": "MovieStoreB.Models\\DTO\\Movie.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T08:50:56.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T08:50:56.119Z"
             },
             {
               "$type": "Document",
@@ -64,33 +75,19 @@
               "RelativeToolTip": "MovieStoreB.Models\\DTO\\Actor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T08:50:51.902Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T08:50:51.902Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MovieStoreB.Models",
+              "Title": "MovieStoreB.Models.csproj",
               "DocumentMoniker": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.Models\\MovieStoreB.Models.csproj",
               "RelativeDocumentMoniker": "MovieStoreB.Models\\MovieStoreB.Models.csproj",
               "ToolTip": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.Models\\MovieStoreB.Models.csproj",
               "RelativeToolTip": "MovieStoreB.Models\\MovieStoreB.Models.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-27T08:50:45.615Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "WhenOpened": "2024-11-27T08:50:45.615Z"
             }
           ]
         }

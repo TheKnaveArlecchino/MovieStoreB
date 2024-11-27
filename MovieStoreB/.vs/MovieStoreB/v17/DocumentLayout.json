@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{AF18E570-DC7A-4D09-A504-6E8F881A9620}|MovieStoreB.DL\\MovieStoreB.DL.csproj|solutionrelative:moviestoreb.dl\\db\\staticdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AF18E570-DC7A-4D09-A504-6E8F881A9620}|MovieStoreB.DL\\MovieStoreB.DL.csproj|c:\\users\\dara\\documents\\github\\moviestoreb\\moviestoreb\\moviestoreb.dl\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF18E570-DC7A-4D09-A504-6E8F881A9620}|MovieStoreB.DL\\MovieStoreB.DL.csproj|solutionrelative:moviestoreb.dl\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FA3BFFAD-ADE9-4380-B97B-38BE146D81AE}|MovieStoreB.Models\\MovieStoreB.Models.csproj|c:\\users\\dara\\documents\\github\\moviestoreb\\moviestoreb\\moviestoreb.models\\dto\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA3BFFAD-ADE9-4380-B97B-38BE146D81AE}|MovieStoreB.Models\\MovieStoreB.Models.csproj|solutionrelative:moviestoreb.models\\dto\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,20 +46,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.DL\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "MovieStoreB.DL\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.DL\\DependencyInjection.cs",
+              "RelativeToolTip": "MovieStoreB.DL\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T09:52:51.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "StaticData.cs",
               "DocumentMoniker": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.DL\\DB\\StaticData.cs",
               "RelativeDocumentMoniker": "MovieStoreB.DL\\DB\\StaticData.cs",
               "ToolTip": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.DL\\DB\\StaticData.cs",
               "RelativeToolTip": "MovieStoreB.DL\\DB\\StaticData.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAwAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T08:51:02.359Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Movie.cs",
               "DocumentMoniker": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.Models\\DTO\\Movie.cs",
               "RelativeDocumentMoniker": "MovieStoreB.Models\\DTO\\Movie.cs",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Actor.cs",
               "DocumentMoniker": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.Models\\DTO\\Actor.cs",
               "RelativeDocumentMoniker": "MovieStoreB.Models\\DTO\\Actor.cs",
@@ -79,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MovieStoreB.Models.csproj",
               "DocumentMoniker": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.Models\\MovieStoreB.Models.csproj",
               "RelativeDocumentMoniker": "MovieStoreB.Models\\MovieStoreB.Models.csproj",
