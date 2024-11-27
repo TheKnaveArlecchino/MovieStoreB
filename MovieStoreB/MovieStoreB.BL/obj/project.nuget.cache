@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ag6k8quOJfI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dara\\Documents\\GitHub\\MovieStoreB\\MovieStoreB\\MovieStoreB.BL\\MovieStoreB.BL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dara\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
