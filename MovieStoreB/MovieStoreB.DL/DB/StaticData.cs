@@ -9,9 +9,7 @@ namespace MovieStoreB.DL.DB
         {
             new Movie
             {
-                Id = 1, 
-                Title = "The Shawshank Redemption",
-                Year = 1994
+                Id = 1, Title = "The Shawshank Redemption", Year = 1994
             },
             new Movie
             {
