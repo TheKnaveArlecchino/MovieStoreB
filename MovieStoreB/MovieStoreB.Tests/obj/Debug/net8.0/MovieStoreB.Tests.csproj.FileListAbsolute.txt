@@ -1,7 +1,0 @@
-C:\Users\Dara\Documents\GitHub\MovieStoreB\MovieStoreB\MovieStoreB.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_MovieStoreB.Tests
-C:\Users\Dara\Documents\GitHub\MovieStoreB\MovieStoreB\MovieStoreB.Tests\obj\Debug\net8.0\MovieStoreB.Tests.csproj.AssemblyReference.cache
-C:\Users\Dara\Documents\GitHub\MovieStoreB\MovieStoreB\MovieStoreB.Tests\obj\Debug\net8.0\MovieStoreB.Tests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Dara\Documents\GitHub\MovieStoreB\MovieStoreB\MovieStoreB.Tests\obj\Debug\net8.0\MovieStoreB.Tests.AssemblyInfoInputs.cache
-C:\Users\Dara\Documents\GitHub\MovieStoreB\MovieStoreB\MovieStoreB.Tests\obj\Debug\net8.0\MovieStoreB.Tests.AssemblyInfo.cs
-C:\Users\Dara\Documents\GitHub\MovieStoreB\MovieStoreB\MovieStoreB.Tests\obj\Debug\net8.0\MovieStoreB.Tests.csproj.CoreCompileInputs.cache
-C:\Users\Dara\Documents\GitHub\MovieStoreB\MovieStoreB\MovieStoreB.Tests\obj\Debug\net8.0\MovieStoreB.Tests.sourcelink.json
