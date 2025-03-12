@@ -60,17 +60,17 @@ namespace MovieStoreB.Tests
         }
 
         [Fact]
-        public void GetAllMovieDetails_ReturnsData()
+        public async Task GetAllMovieDetails_ReturnsData()
         {
             //setup
             var expectedCount = 2;
 
             _movieServiceMock
                 .Setup(x => x.GetMovies())
-                .Returns(_movies);
+                .ReturnsAsync(_movies);
 
             _actorRepositoryMock
-                .Setup(repo => 
+                .Setup(repo =>
                     repo.GetById(It.IsAny<string>()))
                     .Returns((string id) =>
                         _actors.FirstOrDefault(x => x.Id == id));
@@ -81,8 +81,8 @@ namespace MovieStoreB.Tests
                 _actorRepositoryMock.Object);
 
             //act
-            var result = 
-                blMovieService.GetAllMovieDetails();
+            var result =
+                await blMovieService.GetAllMovieDetails();
 
             //assert
             Assert.NotNull(result);
