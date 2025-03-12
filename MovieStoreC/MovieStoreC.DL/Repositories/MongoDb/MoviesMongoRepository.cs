@@ -69,5 +69,10 @@ namespace MovieStoreC.DL.Repositories.MongoDb
         {
            await _moviesCollection.ReplaceOneAsync(m => m.Id == movie.Id, movie);
         }
+
+        Task IMovieRepository.UpdateAsync(Movie movie)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
