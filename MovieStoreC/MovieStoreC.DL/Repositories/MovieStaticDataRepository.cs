@@ -18,22 +18,22 @@ namespace MovieStoreC.DL.Repositories
         //    return StaticDb.Movies
         //        .FirstOrDefault(x => x.Id == id);
         //}
-        public Task Add(Movie movie)
+        public Task AddAsync(Movie movie)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Movie>> GetAll()
+        public List<Movie> GetAll()
         {
             return StaticDb.Movies;
         }
 
-        public Task<Movie?> GetById(string id)
+        public Task<Movie?> GetByIdAsync(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task Update(Movie movie)
+        public Task UpdateAsync(Movie movie)
         {
             throw new NotImplementedException();
         }

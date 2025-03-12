@@ -4,14 +4,14 @@ namespace MovieStoreC.DL.Interfaces
 {
     public interface IActorRepository
     {
-        Task<List<Actor>> GetAll();
+        Task<List<Actor>> GetAllAsync();
 
-        Task<List<Actor>> GetAll(List<string> ids);
+        Task<List<Actor>> GetAllAsync(List<string> ids);
 
-        Task<Actor?> GetById(string id);
+        Task<Actor?> GetByIdAsync(string id);
 
-        Task Add(Actor? actor);
+        Task AddAsync(Actor? actor);
 
-        void Update(Actor movie);
+        Task UpdateAsync(Actor movie);
     }
 }
