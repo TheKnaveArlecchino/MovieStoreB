@@ -18,7 +18,7 @@ namespace MovieStoreC.Controllers
         }
 
         [HttpGet("GetAllDetailedMovies")]
-        public IActionResult GetAllDetailedMoviesAsync()
+        public IActionResult GetAllDetailedMovies()
         {
             var result =
                 _movieService.GetAllMovies();

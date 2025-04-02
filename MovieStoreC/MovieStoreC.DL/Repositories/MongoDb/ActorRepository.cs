@@ -24,23 +24,23 @@ namespace MovieStoreC.DL.Repositories.MongoDb
                 mongoConfig.CurrentValue.DatabaseName);
             _actorsCollection = database.GetCollection<Actor>("ActorsDb");
         }
-        
-        public async Task<List<Actor>> GetAllAsync()
+
+        public async Task<List<Actor>> GetAll()
         {
             var result = await _actorsCollection.FindAsync(m => true);
 
             return await result.ToListAsync();
         }
 
-        public async Task<Actor?> GetAllAsync(string id)
+        public async Task<Actor?> GetById(string id)
         {
             var result = await _actorsCollection
                 .FindAsync(m => m.Id == id);
 
-             return await result.FirstOrDefaultAsync();
+             return result.FirstOrDefault();
         }
 
-        public async Task GetAllAsync(Actor? actor)
+        public async Task Add(Actor? actor)
         {
             if (actor == null)
             {
@@ -59,28 +59,18 @@ namespace MovieStoreC.DL.Repositories.MongoDb
             }
         }
 
-        public async Task UpdateAsync(Actor movie)
+        public void Update(Actor movie)
         {
-            await _actorsCollection.ReplaceOneAsync(m => m.Id == movie.Id, movie);
+            _actorsCollection.ReplaceOne(m => m.Id == movie.Id, movie);
         }
 
-        public async Task<List<Actor>> GetAllAsync(List<string> ids)
+        public async Task<List<Actor>> GetAll(List<string> ids)
         {
             if (ids == null || !ids.Any()) return [];
 
             var result = await _actorsCollection.FindAsync(m => ids.Contains(m.Id));
 
             return await result.ToListAsync();
-        }
-
-        public Task<Actor?> GetByIdAsync(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task AddAsync(Actor? actor)
-        {
-            throw new NotImplementedException();
         }
     }
 }

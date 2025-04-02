@@ -1,7 +1,6 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Mapster;
-using MovieStoreC.Background_Services;
 using MovieStoreC.BL;
 using MovieStoreC.BL.Interfaces;
 using MovieStoreC.DL;
@@ -25,8 +24,6 @@ namespace MovieStoreC
             builder.Services
                 .RegisterRepositories()
                 .RegisterServices();
-                .AddHostedService<TestHostedService>();
-                .AddHostedService<TestBgService>();
 
             builder.Services.AddMapster();
 
@@ -59,11 +56,6 @@ namespace MovieStoreC
             app.MapControllers();
 
             app.Run();
-        }
-
-        private static void AddHostedService<T>()
-        {
-            throw new NotImplementedException();
         }
     }
 }

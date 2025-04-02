@@ -26,27 +26,27 @@ namespace MovieStoreC.DL.Repositories.MongoDb
             _moviesCollection = database.GetCollection<Movie>("MoviesDb");
         }
 
-        public async Task<List<Movie>> GetAllAsync(int year)
+        public async Task<List<Movie>> GetAll(int year)
         {
             var result = await _moviesCollection.FindAsync(m => m.Year == year);
 
             return await result.ToListAsync();
         }
 
-        public async Task<List<Movie>> GetAllAsync()
+        public async Task<List<Movie>> GetAll()
         {
-            return await _moviesCollection.FindAsync(m => true)
+            return _moviesCollection.Find(m => true)
                 .ToList();
         }
 
-        public async Task<Movie?> GetByIdAsync(string id)
+        public Task<Movie?> GetById(string id)
         {
-            return await _moviesCollection
-                .FindAsync(m => m.Id == id)
-                .FirstOrDefaultAsync();
+            return _moviesCollection
+                .Find(m => m.Id == id)
+                .FirstOrDefault();
         }
 
-        public async Task AddAsync(Movie? movie)
+        public async Task Add(Movie? movie)
         {
             if (movie == null)
             {
@@ -65,14 +65,9 @@ namespace MovieStoreC.DL.Repositories.MongoDb
             }
         }
 
-        public async void UpdateAsync(Movie movie)
+        public void Update(Movie movie)
         {
-           await _moviesCollection.ReplaceOneAsync(m => m.Id == movie.Id, movie);
-        }
-
-        Task IMovieRepository.UpdateAsync(Movie movie)
-        {
-            throw new NotImplementedException();
+            _moviesCollection.ReplaceOne(m => m.Id == movie.Id, movie);
         }
     }
 }

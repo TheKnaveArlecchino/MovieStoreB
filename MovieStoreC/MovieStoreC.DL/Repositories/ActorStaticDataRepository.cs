@@ -1,4 +1,8 @@
-﻿namespace MovieStoreC.DL.Repositories
+﻿using MovieStoreC.DL.Interfaces;
+using MovieStoreC.DL.StaticData;
+using MovieStoreC.Models.DTO;
+
+namespace MovieStoreC.DL.Repositories
 {
     [Obsolete]
     internal class ActorStaticDataRepository //: IActorRepository

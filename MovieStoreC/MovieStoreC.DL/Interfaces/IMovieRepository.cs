@@ -4,12 +4,12 @@ namespace MovieStoreC.DL.Interfaces
 {
     public interface IMovieRepository
     {
-        Task<List<Movie>> GetAllAsync();
+        Task<List<Movie>> GetAll();
 
-        Task<Movie?> GetByIdAsync(string id);
+        Task<Movie?> GetById(string id);
 
-        Task AddAsync(Movie movie);
+        Task Add(Movie movie);
 
-        Task UpdateAsync(Movie movie);
+        Task Update(Movie movie);
     }
 }
