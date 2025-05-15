@@ -25,16 +25,17 @@ namespace MovieStoreB.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IEnumerable<Movie>> GetAll()
         {
-            var result = await _movieService.GetMovies();
-
-            if (result == null || !result.Any())
+            try
             {
-                return NotFound();
+                await _movieService.GetMovies();
             }
-
-            return Ok(result);
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Error in GetAll {e.Message}-{e.StackTrace}");
+            }
+            return await _movieService.GetMovies();
         }
 
         [HttpGet("GetById")]
@@ -43,7 +44,7 @@ namespace MovieStoreB.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetById(string id)
         {
-            if (!string.IsNullOrEmpty(id)) return BadRequest();
+            if (string.IsNullOrEmpty(id)) return BadRequest();
 
             var result =
                 _movieService.GetMoviesById(id);
@@ -54,16 +55,12 @@ namespace MovieStoreB.Controllers
         }
 
         [HttpPost("AddMovie")]
-        public async Task<IActionResult> AddMovie(
+        public void AddMovie(
             [FromBody]AddMovieRequest movieRequest)
         {
-            if (movieRequest == null) return BadRequest();
-
             var movie = _mapper.Map<Movie>(movieRequest);
 
-            await _movieService.AddMovie(movie);
-
-            return Ok();
+            _movieService.AddMovie(movie);
         }
 
         [HttpDelete("Delete")]

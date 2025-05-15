@@ -1,9 +1,10 @@
 ﻿namespace MovieStoreB.Models.DTO
 {
-    public class Actor
+    public record Actor(string Id, string Name) : CacheItem<string>
     {
-        public string Id { get; set; }
-
-        public string Name { get; set; }
+        public override string GetKey()
+        {
+            return Id;
+        }
     }
 }
