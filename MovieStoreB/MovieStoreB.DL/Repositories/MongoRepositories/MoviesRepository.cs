@@ -29,37 +29,43 @@ namespace MovieStoreB.DL.Repositories.MongoRepositories
             _moviesCollection = database.GetCollection<Movie>($"{nameof(Movie)}s");
         }
 
-        public async Task AddMovie(Movie movie)
+        public void AddMovie(Movie movie)
         {
-            try
-            {
-                movie.Id = Guid.NewGuid().ToString();
+            movie.Id = Guid.NewGuid().ToString();
 
-                await _moviesCollection.InsertOneAsync(movie);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            _moviesCollection.InsertOne(movie);
         }
 
-        public async Task DeleteMovie(string id)
+        public void DeleteMovie(string id)
         {
-            await _moviesCollection.DeleteOneAsync(m => m.Id == id);
+            _moviesCollection.DeleteOne(m => m.Id == id);
         }
 
         public async Task<List<Movie>> GetMovies()
         {
-            var result =  await _moviesCollection.FindAsync(m => true);
-
-            return result.ToList();
+            return _moviesCollection.Find(m => true).ToList();
         }
 
-        public async Task<Movie?> GetMoviesById(string id)
+        public Movie? GetMoviesById(string id)
         {
-           var result =  await _moviesCollection.FindAsync(m => m.Id == id);
+            return _moviesCollection.Find(m => m.Id == id).FirstOrDefault();
+        }
 
-           return result.FirstOrDefault();
+        public async Task<IEnumerable<Movie?>> GetMoviesAfterDateTime(DateTime date)
+        {
+            var result = await _moviesCollection.FindAsync(m => m.DateInserted >= date);
+
+            return await result.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Movie?>> FullLoad()
+        {
+            return await GetMovies();
+        }
+
+        public async Task<IEnumerable<Movie?>> DifLoad(DateTime lastExecuted)
+        {
+            return await GetMoviesAfterDateTime(lastExecuted);
         }
     }
 }

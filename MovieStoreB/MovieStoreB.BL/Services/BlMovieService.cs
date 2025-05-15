@@ -1,6 +1,5 @@
 ﻿using MovieStoreB.BL.Interfaces;
 using MovieStoreB.DL.Interfaces;
-using MovieStoreB.Models.DTO;
 using MovieStoreB.Models.Responses;
 
 namespace MovieStoreB.BL.Services
@@ -28,11 +27,12 @@ namespace MovieStoreB.BL.Services
                 movieDetails.Title = movie.Title;
                 movieDetails.Year = movie.Year;
                 movieDetails.Id = movie.Id;
-                
-                var actors = await
-                    _actorRepository.GetActors(movie.Actors);
 
-                movieDetails.Actors = actors;
+                foreach (var actorId in movie.ActorIds)
+                {
+                    var actor = _actorRepository.GetById(actorId);
+                }
+
                 result.Add(movieDetails);
             }
             return result;

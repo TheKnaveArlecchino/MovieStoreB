@@ -18,7 +18,7 @@ namespace MovieStoreB.Tests
                 Id = "c3bd1985-792e-4208-af81-4d154bff15c8",
                 Title = "Movie 1",
                 Year = 2021,
-                Actors = [
+                ActorIds = [
                     "157af604-7a4b-4538-b6a9-fed41a41cf3a",
                     "baac2b19-bbd2-468d-bd3b-5bd18aba98d7"]
             },
@@ -27,7 +27,7 @@ namespace MovieStoreB.Tests
                 Id = "4c304bec-f213-47b5-8ae0-9df4a4eb3b99",
                 Title = "Movie 2",
                 Year = 2022,
-                Actors = [
+                ActorIds = [
                     "157af604-7a4b-4538-b6a9-fed41a41cf3a",
                     "5c93ba13-e803-49c1-b465-d471607e97b3"
                 ]
@@ -36,18 +36,15 @@ namespace MovieStoreB.Tests
 
         private List<Actor> _actors = new List<Actor>
         {
-            new Actor()
-            {
+            new Actor(default, default) {
                 Id = "157af604-7a4b-4538-b6a9-fed41a41cf3a",
                 Name = "Actor 1"
             },
-            new Actor()
-            {
+            new Actor(default, default) {
                 Id = "baac2b19-bbd2-468d-bd3b-5bd18aba98d7",
                 Name = "Actor 2"
             },
-            new Actor()
-            {
+            new Actor(default, default) {
                 Id = "5c93ba13-e803-49c1-b465-d471607e97b3",
                 Name = "Actor 3"
             },
@@ -60,7 +57,7 @@ namespace MovieStoreB.Tests
         }
 
         [Fact]
-        async Task GetMoviesById_ReturnsData()
+        void GetMoviesById_ReturnsData()
         {
             // Arrange
             var movieId = _movies[0].Id;
@@ -72,7 +69,7 @@ namespace MovieStoreB.Tests
             var movieService = new MovieService(_movieRepositoryMock.Object, _actorRepositoryMock.Object);
 
             // Act
-            var result = await movieService.GetMoviesById(movieId);
+            var result = movieService.GetMoviesById(movieId);
 
             // Assert
             Assert.NotNull(result);
