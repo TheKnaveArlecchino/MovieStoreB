@@ -65,7 +65,7 @@ namespace MovieStoreB.Controllers
         [HttpDelete("Delete")]
         public IActionResult Delete(string id)
         {
-            if (!string.IsNullOrEmpty(id)) return BadRequest($"Wrong id:{id}");
+            if (string.IsNullOrEmpty(id)) return BadRequest($"Wrong id:{id}");
 
             _movieService.DeleteMovie(id);
 
