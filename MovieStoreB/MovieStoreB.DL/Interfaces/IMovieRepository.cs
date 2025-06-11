@@ -8,10 +8,10 @@ namespace MovieStoreB.DL.Interfaces
     {
         Task<List<Movie>> GetMovies();
 
-        void AddMovie(Movie movie);
+        void AddMovieAsync(Movie movie);
 
-        void DeleteMovie(string id);
+        void DeleteMovieAsync(string id);
 
-        Movie? GetMoviesById(string id);
+        Movie? GetMoviesByIdAsync(string id);
     }
 }

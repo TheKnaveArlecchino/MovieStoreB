@@ -36,14 +36,14 @@ namespace MovieStoreB.BL.Services
                 if (!Guid.TryParse(actor, out _)) return;
             }
 
-            _movieRepository.AddMovie(movie);
+            _movieRepository.AddMovieAsync(movie);
         }
 
         public void DeleteMovie(string id)
         {
             if (!string.IsNullOrEmpty(id)) return;
 
-            _movieRepository.DeleteMovie(id);
+            _movieRepository.DeleteMovieAsync(id);
         }
 
         public Movie? GetMoviesById(string id)
@@ -53,7 +53,7 @@ namespace MovieStoreB.BL.Services
                 return null;
             }
 
-            return _movieRepository.GetMoviesById(movieId.ToString());
+            return _movieRepository.GetMoviesByIdAsync(movieId.ToString());
         }
 
         public void AddActor(string movieId, Actor actor) 
@@ -62,7 +62,7 @@ namespace MovieStoreB.BL.Services
 
             if (!Guid.TryParse(movieId, out _)) return;
 
-            var movie = _movieRepository.GetMoviesById(movieId);
+            var movie = _movieRepository.GetMoviesByIdAsync(movieId);
 
             if (movie == null) return;
 
