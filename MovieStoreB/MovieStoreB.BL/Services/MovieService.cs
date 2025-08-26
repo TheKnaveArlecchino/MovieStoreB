@@ -8,69 +8,76 @@ namespace MovieStoreB.BL.Services
     {
         private readonly IMovieRepository _movieRepository;
         private readonly IActorRepository _actorRepository;
+        private readonly IActorBioGateway _actorBioGateway;
 
-        public MovieService(IMovieRepository movieRepository, IActorRepository actorRepository)
+        public MovieService(IMovieRepository movieRepository, IActorRepository actorRepository, IActorBioGateway actorBioGateway)
         {
             _movieRepository = movieRepository;
             _actorRepository = actorRepository;
+            _actorBioGateway = actorBioGateway;
         }
 
         public async Task<List<Movie>> GetMovies()
         {
+            var test = await _actorBioGateway.GetBioByActorId("1234567890");
+
+            var test1 = await _actorBioGateway.GetBioByActor(new Actor());
             return await _movieRepository.GetMovies();
         }
 
-        public async Task AddMovie(Movie movie)
+        public void AddMovie(Movie movie)
         {
-            if (movie == null || movie.Actors == null) return;
+            if (movie == null || movie.ActorIds == null) return;
 
-            foreach (var actor in movie.Actors)
+            movie.DateInserted = DateTime.UtcNow;
+
+            foreach (var actor in movie.ActorIds)
             {
                 if (!Guid.TryParse(actor, out _)) return;
             }
 
-            await _movieRepository.AddMovie(movie);
+            _movieRepository.AddMovieAsync(movie);
         }
 
-        public async Task DeleteMovie(string id)
+        public void DeleteMovie(string id)
         {
             if (!string.IsNullOrEmpty(id)) return;
 
-            await _movieRepository.DeleteMovie(id);
+            _movieRepository.DeleteMovieAsync(id);
         }
 
-        public async Task<Movie?> GetMoviesById(string id)
+        public Movie? GetMoviesById(string id)
         {
             if (string.IsNullOrEmpty(id) || !Guid.TryParse(id, out var movieId))
             {
                 return null;
             }
 
-            return await _movieRepository.GetMoviesById(movieId.ToString());
+            return _movieRepository.GetMoviesByIdAsync(movieId.ToString());
         }
 
-        public async Task AddActor(string movieId, Actor actor)
+        public void AddActor(string movieId, Actor actor) 
         {
             if (string.IsNullOrEmpty(movieId) || actor == null) return;
 
             if (!Guid.TryParse(movieId, out _)) return;
 
-            var movie = await _movieRepository.GetMoviesById(movieId);
+            var movie = _movieRepository.GetMoviesByIdAsync(movieId);
 
             if (movie == null) return;
 
-            if (movie.Actors == null)
+            if (movie.ActorIds == null)
             {
-                movie.Actors = new List<string>();
+                movie.ActorIds = new List<string>();
             }
 
             if (actor.Id == null || string.IsNullOrEmpty(actor.Id) || Guid.TryParse(actor.Id, out _) == false) return;
 
-            var existingActor = await _actorRepository.GetById(actor.Id);
+            var existingActor = _actorRepository.GetById(actor.Id);
 
             if (existingActor != null) return;
 
-            movie.Actors.Add(actor.Id);
+            movie.ActorIds.Add(actor.Id);
         }
     }
 }

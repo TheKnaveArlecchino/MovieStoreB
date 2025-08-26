@@ -6,12 +6,12 @@ namespace MovieStoreB.BL.Interfaces
     {
         Task<List<Movie>> GetMovies();
 
-        Task AddMovie(Movie movie);
+        void AddMovie(Movie movie);
 
-        Task DeleteMovie(string id);
+        void DeleteMovie(string id);
 
-        Task<Movie?> GetMoviesById(string id);
+        Movie? GetMoviesById(string id);
 
-        Task AddActor(string movieId, Actor actor);
+        void AddActor(string movieId, Actor actor);
     }
 }

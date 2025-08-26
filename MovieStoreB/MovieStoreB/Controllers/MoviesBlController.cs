@@ -10,28 +10,29 @@ namespace MovieStoreB.Controllers
     [Route("[controller]")]
     public class MoviesBlController : ControllerBase
     {
-        private readonly IBlMovieService _movieService;
+        private readonly IMovieService _movieService;
         private readonly ILogger<MoviesController> _logger;
 
         public MoviesBlController(
-            IBlMovieService movieService,
+            IMovieService movieService,
             ILogger<MoviesController> logger)
         {
             _movieService = movieService;
             _logger = logger;
         }
 
-       
         [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IEnumerable<Movie>> GetAll()
         {
-            var result =  await _movieService.GetAllMovieDetails();
-
-            if (result == null || !result.Any())
+            try
             {
-                return NotFound();
+               return await _movieService.GetMovies();
             }
-            return Ok(result);
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Error in GetAll {e.Message}-{e.StackTrace}");
+            }
+            return await _movieService.GetMovies();
         }
     }
 

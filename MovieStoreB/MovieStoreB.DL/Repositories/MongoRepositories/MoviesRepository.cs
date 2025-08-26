@@ -29,37 +29,47 @@ namespace MovieStoreB.DL.Repositories.MongoRepositories
             _moviesCollection = database.GetCollection<Movie>($"{nameof(Movie)}s");
         }
 
-        public async Task AddMovie(Movie movie)
+        public async Task AddMovieAsync(Movie movie)
         {
-            try
-            {
-                movie.Id = Guid.NewGuid().ToString();
+            movie.Id = Guid.NewGuid().ToString();
 
-                await _moviesCollection.InsertOneAsync(movie);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            await _moviesCollection.InsertOneAsync(movie);
         }
 
-        public async Task DeleteMovie(string id)
+        public async Task DeleteMovieAsync(string id)
         {
-            await _moviesCollection.DeleteOneAsync(m => m.Id == id);
+            await _moviesCollection.DeleteOne(m => m.Id == id);
         }
 
         public async Task<List<Movie>> GetMovies()
         {
-            var result =  await _moviesCollection.FindAsync(m => true);
+            var result = await _moviesCollection.FindAsync(m => true);
 
-            return result.ToList();
+            return await result.ToListAsync();  
         }
 
         public async Task<Movie?> GetMoviesById(string id)
         {
-           var result =  await _moviesCollection.FindAsync(m => m.Id == id);
+            var result = await _moviesCollection.FindAsync(m => m.Id == id);
+            return await result.FirstOrDefaultAsync();
+        }
 
-           return result.FirstOrDefault();
+
+        protected async Task<IEnumerable<Movie?>> GetMoviesAfterDateTime(DateTime date)
+        {
+            var result = await _moviesCollection.FindAsync(m => m.DateInserted >= date);
+
+            return await result.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Movie?>> FullLoad()
+        {
+            return await GetMovies();
+        }
+
+        public async Task<IEnumerable<Movie?>> DifLoad(DateTime lastExecuted)
+        {
+            return await GetMoviesAfterDateTime(lastExecuted);
         }
     }
 }

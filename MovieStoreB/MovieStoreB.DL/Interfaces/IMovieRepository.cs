@@ -1,16 +1,17 @@
 ﻿
+using MovieStoreB.DL.Cache;
 using MovieStoreB.Models.DTO;
 
 namespace MovieStoreB.DL.Interfaces
 {
-    public interface IMovieRepository
+    public interface IMovieRepository : ICacheRepository<string, Movie>
     {
         Task<List<Movie>> GetMovies();
 
-        Task AddMovie(Movie movie);
+        void AddMovieAsync(Movie movie);
 
-        Task DeleteMovie(string id);
+        void DeleteMovieAsync(string id);
 
-        Task<Movie?> GetMoviesById(string id);
+        Movie? GetMoviesByIdAsync(string id);
     }
 }

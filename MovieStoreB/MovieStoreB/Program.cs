@@ -22,9 +22,8 @@ builder.Logging.AddSerilog(logger);
 // Add services to the container.
 builder.Services
     .AddConfigurations(builder.Configuration)
-    .AddDataDependencies()
-    .AddBusinessDependencies()
-    .AddBackgroundServices();
+    .AddDataDependencies(builder.Configuration)
+    .AddBusinessDependencies();
 
 builder.Services.AddMapster();
 
@@ -37,7 +36,7 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddHealthChecks();
 
 builder.Services.AddHealthChecks()
-    .AddCheck<SampleHealthCheck>("Sample");
+    .AddCheck<SampleHealthCheck>("Sampler");
 
 var app = builder.Build();
 
@@ -58,12 +57,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-
-// async Method -
-// ? 1 ?????? ????????? ?? ????? ???????????????.
-// ????? ????????? ??????
-// 3 ??????????
-// GetDataFromNetwork, GetDataFromDatabase,
-// GetDataFromFile
-// ??????????? 
